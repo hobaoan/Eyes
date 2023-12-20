@@ -16,6 +16,11 @@
 		E98B8AE72B33332C00EC4FFB /* EyesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8AE62B33332C00EC4FFB /* EyesTests.swift */; };
 		E98B8AF12B33332C00EC4FFB /* EyesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8AF02B33332C00EC4FFB /* EyesUITests.swift */; };
 		E98B8AF32B33332C00EC4FFB /* EyesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8AF22B33332C00EC4FFB /* EyesUITestsLaunchTests.swift */; };
+		E98B8B052B3338C300EC4FFB /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B042B3338C300EC4FFB /* Measure.swift */; };
+		E98B8B072B3338DE00EC4FFB /* CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B062B3338DE00EC4FFB /* CVPixelBuffer.swift */; };
+		E98B8B0A2B3338F900EC4FFB /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B092B3338F900EC4FFB /* VideoCapture.swift */; };
+		E98B8B0D2B33397E00EC4FFB /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B0C2B33397E00EC4FFB /* Box.swift */; };
+		E98B8B0F2B3342D400EC4FFB /* yolov8m.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B0E2B3342D400EC4FFB /* yolov8m.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		E98B8AEC2B33332C00EC4FFB /* EyesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98B8AF02B33332C00EC4FFB /* EyesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyesUITests.swift; sourceTree = "<group>"; };
 		E98B8AF22B33332C00EC4FFB /* EyesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E98B8B042B3338C300EC4FFB /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		E98B8B062B3338DE00EC4FFB /* CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBuffer.swift; sourceTree = "<group>"; };
+		E98B8B092B3338F900EC4FFB /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		E98B8B0C2B33397E00EC4FFB /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		E98B8B0E2B3342D400EC4FFB /* yolov8m.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = yolov8m.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +109,9 @@
 		E98B8ACE2B33332A00EC4FFB /* Eyes */ = {
 			isa = PBXGroup;
 			children = (
-				E98B8ACF2B33332A00EC4FFB /* AppDelegate.swift */,
-				E98B8AD12B33332A00EC4FFB /* SceneDelegate.swift */,
-				E98B8AD32B33332A00EC4FFB /* ViewController.swift */,
-				E98B8AD52B33332A00EC4FFB /* Main.storyboard */,
-				E98B8AD82B33332B00EC4FFB /* Assets.xcassets */,
-				E98B8ADA2B33332B00EC4FFB /* LaunchScreen.storyboard */,
+				E98B8B002B33350C00EC4FFB /* Application */,
+				E98B8B012B33351300EC4FFB /* Presentation */,
+				E98B8B022B33351C00EC4FFB /* Resource */,
 				E98B8ADD2B33332B00EC4FFB /* Info.plist */,
 			);
 			path = Eyes;
@@ -125,6 +132,54 @@
 				E98B8AF22B33332C00EC4FFB /* EyesUITestsLaunchTests.swift */,
 			);
 			path = EyesUITests;
+			sourceTree = "<group>";
+		};
+		E98B8B002B33350C00EC4FFB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E98B8AD52B33332A00EC4FFB /* Main.storyboard */,
+				E98B8ADA2B33332B00EC4FFB /* LaunchScreen.storyboard */,
+				E98B8ACF2B33332A00EC4FFB /* AppDelegate.swift */,
+				E98B8AD12B33332A00EC4FFB /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E98B8B012B33351300EC4FFB /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E98B8B0B2B33396D00EC4FFB /* BoxObject */,
+				E98B8B032B33388300EC4FFB /* CameraUtils */,
+				E98B8AD32B33332A00EC4FFB /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E98B8B022B33351C00EC4FFB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E98B8B0E2B3342D400EC4FFB /* yolov8m.mlpackage */,
+				E98B8AD82B33332B00EC4FFB /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E98B8B032B33388300EC4FFB /* CameraUtils */ = {
+			isa = PBXGroup;
+			children = (
+				E98B8B042B3338C300EC4FFB /* Measure.swift */,
+				E98B8B062B3338DE00EC4FFB /* CVPixelBuffer.swift */,
+				E98B8B092B3338F900EC4FFB /* VideoCapture.swift */,
+			);
+			path = CameraUtils;
+			sourceTree = "<group>";
+		};
+		E98B8B0B2B33396D00EC4FFB /* BoxObject */ = {
+			isa = PBXGroup;
+			children = (
+				E98B8B0C2B33397E00EC4FFB /* Box.swift */,
+			);
+			path = BoxObject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E98B8B072B3338DE00EC4FFB /* CVPixelBuffer.swift in Sources */,
+				E98B8B0D2B33397E00EC4FFB /* Box.swift in Sources */,
+				E98B8B0F2B3342D400EC4FFB /* yolov8m.mlpackage in Sources */,
 				E98B8AD42B33332A00EC4FFB /* ViewController.swift in Sources */,
 				E98B8AD02B33332A00EC4FFB /* AppDelegate.swift in Sources */,
+				E98B8B052B3338C300EC4FFB /* Measure.swift in Sources */,
+				E98B8B0A2B3338F900EC4FFB /* VideoCapture.swift in Sources */,
 				E98B8AD22B33332A00EC4FFB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,11 +505,13 @@
 				DEVELOPMENT_TEAM = KNQWN32P6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eyes/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allows to access camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,11 +535,13 @@
 				DEVELOPMENT_TEAM = KNQWN32P6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eyes/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allows to access camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
