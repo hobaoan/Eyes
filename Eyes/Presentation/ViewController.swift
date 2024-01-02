@@ -9,6 +9,8 @@
 import UIKit
 import Vision
 import CoreMedia
+import AVFoundation
+
 
 class ViewController: UIViewController {
 
@@ -22,12 +24,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var fpsLabel: UILabel!
     
     // MARK - Core ML model
-    // YOLOv3(iOS12+), YOLOv3FP16(iOS12+), YOLOv3Int8LUT(iOS12+)
-    // YOLOv3Tiny(iOS12+), YOLOv3TinyFP16(iOS12+), YOLOv3TinyInt8LUT(iOS12+)
-    // MobileNetV2_SSDLite(iOS12+), ObjectDetector(iOS12+)
-    // yolov5n(iOS13+), yolov5s(iOS13+), yolov5m(iOS13+), yolov5l(iOS13+), yolov5x(iOS13+)
-    // yolov5n6(iOS13+), yolov5s6(iOS13+), yolov5m6(iOS13+), yolov5l6(iOS13+), yolov5x6(iOS13+)
-    // yolov8n(iOS14+), yolov8s(iOS14+), yolov8m(iOS14+), yolov8l(iOS14+), yolov8x(iOS14+)
     lazy var objectDectectionModel = { return try? yolov8m() }()
     
     // MARK: - Vision Properties
@@ -49,6 +45,11 @@ class ViewController: UIViewController {
     let maf1 = MovingAverageFilter()
     let maf2 = MovingAverageFilter()
     let maf3 = MovingAverageFilter()
+    
+    // MARK - Siri speaker
+    let speechSynthesizer = AVSpeechSynthesizer()
+    var spokenLabels: Set<String> = Set()
+    var resetTimer: Timer?
     
     // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -146,30 +147,68 @@ extension ViewController {
     }
     
     // MARK: - Post-processing
-    func visionRequestDidComplete(request: VNRequest, error: Error?) {
-        self.camera.tagLabel(with: "endInference")
-        if let predictions = request.results as? [VNRecognizedObjectObservation] {
-//            print(predictions.first?.labels.first?.identifier ?? "nil")
-//            print(predictions.first?.labels.first?.confidence ?? -1)
-            
-            self.predictions = predictions
-            DispatchQueue.main.async {
-                self.boxesView.predictedObjects = predictions
-                self.labelsTableView.reloadData()
+        func visionRequestDidComplete(request: VNRequest, error: Error?) {
+            self.camera.tagLabel(with: "endInference")
 
+            if let predictions = request.results as? [VNRecognizedObjectObservation] {
+                // Filter predictions with confidence greater than or equal to 0.9
+                let filteredPredictions = predictions.filter { $0.labels.first?.confidence ?? 0 >= 0.999 }
+
+                self.predictions = filteredPredictions
+                DispatchQueue.main.async {
+                    self.boxesView.predictedObjects = filteredPredictions
+                    self.labelsTableView.reloadData()
+
+                    // end of measure
+                    self.camera.stopCamera()
+
+                    self.isInferencing = false
+
+                    // Đọc ra labels khi có dự đoán mới
+                    self.speakLabels()
+                }
+            } else {
                 // end of measure
                 self.camera.stopCamera()
-                
+
                 self.isInferencing = false
             }
-        } else {
-            // end of measure
-            self.camera.stopCamera()
-            
-            self.isInferencing = false
+
+            self.semaphore.signal()
         }
-        self.semaphore.signal()
+
+    // MARK: - Text-to-Speech
+    func speakLabels() {
+        guard !predictions.isEmpty else {
+            return
+        }
+        
+        var labelsToSpeak: [String] = []
+        
+        for prediction in predictions {
+            guard let label = prediction.label, !spokenLabels.contains(label) else {
+                continue // Nhãn đã được đọc, bỏ qua
+            }
+            
+            labelsToSpeak.append(label)
+            spokenLabels.insert(label) // Đánh dấu là đã đọc
+        }
+        
+        guard !labelsToSpeak.isEmpty else {
+            return
+        }
+        
+        let labelsString = labelsToSpeak.joined(separator: ", ")
+        let speechUtterance = AVSpeechUtterance(string: labelsString)
+        speechSynthesizer.speak(speechUtterance)
+        
+        // Khởi động hoặc reset timer để reset spokenLabels sau mỗi 5 giây
+        resetTimer?.invalidate()
+        resetTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { _ in
+            self.spokenLabels.removeAll()
+        }
     }
+
 }
 
 extension ViewController: UITableViewDataSource {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E946AB0C2B3EB8130052DF68 /* ObjectDetectorAdd_1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E946AB0B2B3EB8130052DF68 /* ObjectDetectorAdd_1.mlmodel */; };
 		E98B8AD02B33332A00EC4FFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8ACF2B33332A00EC4FFB /* AppDelegate.swift */; };
 		E98B8AD22B33332A00EC4FFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8AD12B33332A00EC4FFB /* SceneDelegate.swift */; };
 		E98B8AD42B33332A00EC4FFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8AD32B33332A00EC4FFB /* ViewController.swift */; };
@@ -20,7 +21,7 @@
 		E98B8B072B3338DE00EC4FFB /* CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B062B3338DE00EC4FFB /* CVPixelBuffer.swift */; };
 		E98B8B0A2B3338F900EC4FFB /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B092B3338F900EC4FFB /* VideoCapture.swift */; };
 		E98B8B0D2B33397E00EC4FFB /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B0C2B33397E00EC4FFB /* Box.swift */; };
-		E98B8B0F2B3342D400EC4FFB /* yolov8m.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = E98B8B0E2B3342D400EC4FFB /* yolov8m.mlpackage */; };
+		E98BE2C72B357D0C005A5DEB /* yolov8m.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = E98BE2C62B357D0C005A5DEB /* yolov8m.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E946AB0B2B3EB8130052DF68 /* ObjectDetectorAdd_1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = ObjectDetectorAdd_1.mlmodel; path = ../../../../../../../Desktop/ObjectDetectorAdd_1.mlmodel; sourceTree = "<group>"; };
 		E98B8ACC2B33332A00EC4FFB /* Eyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98B8ACF2B33332A00EC4FFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E98B8AD12B33332A00EC4FFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		E98B8B062B3338DE00EC4FFB /* CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBuffer.swift; sourceTree = "<group>"; };
 		E98B8B092B3338F900EC4FFB /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		E98B8B0C2B33397E00EC4FFB /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		E98B8B0E2B3342D400EC4FFB /* yolov8m.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = yolov8m.mlpackage; sourceTree = "<group>"; };
+		E98BE2C62B357D0C005A5DEB /* yolov8m.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = yolov8m.mlpackage; path = ../../../../../../../Downloads/yolov8m.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +160,8 @@
 		E98B8B022B33351C00EC4FFB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E98B8B0E2B3342D400EC4FFB /* yolov8m.mlpackage */,
+				E946AB0B2B3EB8130052DF68 /* ObjectDetectorAdd_1.mlmodel */,
+				E98BE2C62B357D0C005A5DEB /* yolov8m.mlpackage */,
 				E98B8AD82B33332B00EC4FFB /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -315,9 +318,10 @@
 			files = (
 				E98B8B072B3338DE00EC4FFB /* CVPixelBuffer.swift in Sources */,
 				E98B8B0D2B33397E00EC4FFB /* Box.swift in Sources */,
-				E98B8B0F2B3342D400EC4FFB /* yolov8m.mlpackage in Sources */,
+				E98BE2C72B357D0C005A5DEB /* yolov8m.mlpackage in Sources */,
 				E98B8AD42B33332A00EC4FFB /* ViewController.swift in Sources */,
 				E98B8AD02B33332A00EC4FFB /* AppDelegate.swift in Sources */,
+				E946AB0C2B3EB8130052DF68 /* ObjectDetectorAdd_1.mlmodel in Sources */,
 				E98B8B052B3338C300EC4FFB /* Measure.swift in Sources */,
 				E98B8B0A2B3338F900EC4FFB /* VideoCapture.swift in Sources */,
 				E98B8AD22B33332A00EC4FFB /* SceneDelegate.swift in Sources */,
@@ -428,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -485,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -505,6 +509,7 @@
 				DEVELOPMENT_TEAM = KNQWN32P6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eyes/Info.plist;
+				INFOPLIST_KEY_MetalCaptureEnabled = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allows to access camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -522,6 +527,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -535,6 +541,7 @@
 				DEVELOPMENT_TEAM = KNQWN32P6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eyes/Info.plist;
+				INFOPLIST_KEY_MetalCaptureEnabled = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allows to access camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

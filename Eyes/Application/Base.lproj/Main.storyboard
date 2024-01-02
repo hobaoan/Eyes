@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" secondItem="m7M-xM-p4j" secondAttribute="height" multiplier="375:500" id="56N-VS-ePK"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA3-RI-vlV" customClass="DrawingBoundingBoxView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA3-RI-vlV" customClass="DrawingBoundingBoxView" customModule="Eyes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="79" width="393" height="524"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -121,12 +121,16 @@
                             <constraint firstItem="xA3-RI-vlV" firstAttribute="centerY" secondItem="m7M-xM-p4j" secondAttribute="centerY" id="J4a-il-VWK"/>
                             <constraint firstAttribute="bottom" secondItem="wpS-Fq-N5G" secondAttribute="bottom" id="RDp-Nx-0tb"/>
                             <constraint firstItem="Fe9-er-h6g" firstAttribute="leading" secondItem="lyp-Qb-TOI" secondAttribute="leading" id="TA8-XR-wPp"/>
+                            <constraint firstItem="xA3-RI-vlV" firstAttribute="trailing" secondItem="lyp-Qb-TOI" secondAttribute="trailing" id="Tvo-Es-jh0"/>
+                            <constraint firstItem="wpS-Fq-N5G" firstAttribute="top" secondItem="xA3-RI-vlV" secondAttribute="bottom" id="VVO-K3-jv8"/>
                             <constraint firstAttribute="trailing" secondItem="m7M-xM-p4j" secondAttribute="trailing" id="Ybf-It-zEw"/>
                             <constraint firstAttribute="trailing" secondItem="Fe9-er-h6g" secondAttribute="trailing" id="ZXh-Wc-ipL"/>
                             <constraint firstItem="xA3-RI-vlV" firstAttribute="width" secondItem="m7M-xM-p4j" secondAttribute="width" id="eGK-jC-YcU"/>
                             <constraint firstItem="lyp-Qb-TOI" firstAttribute="trailing" secondItem="wpS-Fq-N5G" secondAttribute="trailing" id="gBA-4L-Tp7"/>
+                            <constraint firstItem="xA3-RI-vlV" firstAttribute="top" secondItem="Fe9-er-h6g" secondAttribute="bottom" id="hDM-jT-ifx"/>
                             <constraint firstItem="m7M-xM-p4j" firstAttribute="top" secondItem="Fe9-er-h6g" secondAttribute="bottom" id="lv1-3P-HYu"/>
                             <constraint firstItem="xA3-RI-vlV" firstAttribute="leading" secondItem="m7M-xM-p4j" secondAttribute="leading" id="uD1-o9-13D"/>
+                            <constraint firstItem="xA3-RI-vlV" firstAttribute="leading" secondItem="lyp-Qb-TOI" secondAttribute="leading" id="vqN-Eh-w8j"/>
                         </constraints>
                     </view>
                     <connections>
@@ -140,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKL-48-2dU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15" y="-57"/>
+            <point key="canvasLocation" x="14.503816793893129" y="-57.04225352112676"/>
         </scene>
     </scenes>
 </document>
